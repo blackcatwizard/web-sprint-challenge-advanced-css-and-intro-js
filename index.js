@@ -229,8 +229,8 @@ Create a function called `getArtistByIndex` that takes two arguments:
 */
 function getArtistByIndex(artists, index){
   const artist = artists[index]
-  return("The artist at index " + artist.index + " is " + artist.name)
-  /*it's not calling the index number, returning undefined. fix this!*/
+  return("the artist at index " + artist.id + " is " + artist.name)
+  
 }
 
 
@@ -264,7 +264,8 @@ Create a function called `removeArtist` that takes two arguments:
  * it will remove Amedeo Modigliani from our dataset and log the number 19.  
 */
 function removeArtist(artists, index) {
-  
+  artists.splice(index, 1)
+  return artists.length
    /*Your Code Here*/
 }
    
@@ -284,11 +285,19 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-function addArtist(artists, newArtist){
-  
-  return artists.unshift(newArtist)
-    /*Your Code Here*/
+function addArtist(artists){
+  let newArtist = {
+      id: "20",
+      name: "Adam Selter", 
+      years: "1995 - 2020",
+      genre: "Writing, Game Development", 
+      nationality: "Latino",
+      bio: "Hailing from California, this aspirant is trying to make it as a developer. Still early in their career, but is giving it his all!"
+    }
+  artists.push(newArtist)
+  return artists
   }
+  
 
   
 
@@ -301,8 +310,14 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
-  /*Your Code Here*/
+function lotsOfArt(artists){
+  let lotsOfArt = []
+  for(let i = 0; i < artists.length; i++){
+    if(artists[i].paintings >= 100){
+      lotsOfArt.push(artists[i].name)
+    }
+  }
+  return lotsOfArt
 }
 
 
